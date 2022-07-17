@@ -17,8 +17,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: 250px 1fr;
-    grid-template-rows: min-content 60px 4fr;
-    column-gap: 16px;
+    grid-template-rows: min-content min-content 4fr;
     grid-template-areas:
         "sidebar page-header"
         "sidebar user-header"
@@ -26,14 +25,14 @@ body {
 }
 
 .container > div {
-    padding: 15px;
+    padding: 15px 24px;
 }
 
 .page-header {
     grid-area: page-header;
     display: grid;
     grid-template-columns: min-content 1fr min-content min-content min(150px);
-    gap: 26px;
+    column-gap: 26px;
     align-items: center;
 }
 
@@ -47,6 +46,16 @@ input {
 
 .user-header {
     grid-area: user-header;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: min-content 1fr min-content min-content min-content;
+    column-gap: 26px;
+    align-items: center;
+    box-shadow: 5px 5px 5px var(--background-grey);
+}
+
+.user-welcome span {
+    font-weight: 600;
 }
 
 .sidebar {
@@ -87,4 +96,17 @@ input {
 
 .avatar {
     max-height: 40px;
+}
+
+.user-header .avatar {
+    max-height: 70px;
+}
+
+.btn {
+    padding: 8px 24px;
+    background-color: var(--background-blue);
+    color: var(--text-white);
+    font-weight: 600;
+    border: none;
+    border-radius: 16px;
 }
