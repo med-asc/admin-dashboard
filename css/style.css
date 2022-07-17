@@ -17,7 +17,8 @@ body {
 .container {
     display: grid;
     grid-template-columns: 250px 1fr;
-    grid-template-rows: 60px 60px 4fr;
+    grid-template-rows: min-content 60px 4fr;
+    column-gap: 16px;
     grid-template-areas:
         "sidebar page-header"
         "sidebar user-header"
@@ -30,6 +31,18 @@ body {
 
 .page-header {
     grid-area: page-header;
+    display: grid;
+    grid-template-columns: min-content 1fr min-content min-content min(150px);
+    gap: 26px;
+    align-items: center;
+}
+
+input {
+    background-color: var(--background-grey);
+    padding: 8px;
+    border: none;
+    border-radius: 12px;
+    width: max(150px, 80%)
 }
 
 .user-header {
@@ -70,4 +83,8 @@ body {
 
 .article {
     grid-area: article;
+}
+
+.avatar {
+    max-height: 40px;
 }
