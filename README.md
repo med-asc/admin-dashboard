@@ -5,3 +5,5 @@ Resources used:
 * Avatars: https://getavataaars.com/
 * Font: https://fonts.google.com/specimen/Roboto
 * Icons: https://fonts.google.com/icons
+
+Link: https://med-asc.github.io/admin-dashboard/
