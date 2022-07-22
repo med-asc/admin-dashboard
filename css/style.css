@@ -1,12 +1,15 @@
+/* || Custom properties */
 :root {
-    --background-blue: rgb(22, 78, 99);
-    --background-grey: rgb(190, 201, 223);
-    --background-turquoise: rgb(65, 203, 191);
-    --text-white: rgb(249, 250, 251);
-    --text-grey: rgb(99, 99, 99);
+    --color-blue: rgb(22, 78, 99);
+    --color-light-grey: rgb(190, 201, 223);
+    --turquoise-turquoise: rgb(65, 203, 191);
+    --color-white: rgb(249, 250, 251);
+    --color-grey: rgb(99, 99, 99);
     --box-shadow: 5px 5px 5px rgb(173 184 204);
 }
 
+
+/* || General styles */
 * {
     padding: 0;
     margin: 0;
@@ -20,9 +23,11 @@
 body {
     height: 100vh;
     font-family: roboto, 'Segoe UI', Tahoma, Verdana;
-    background-color: var(--background-grey);
+    background-color: var(--color-light-grey);
 }
 
+
+/* || Site wide */
 .container {
     display: grid;
     grid-template-columns: 250px 1fr;
@@ -37,23 +42,39 @@ body {
     padding: 15px 24px;
 }
 
+.avatar {
+    max-height: 40px;
+}
+
+.avatar-lg {
+    max-height: 70px;
+}
+
+
+/* || Page header */
 .page-header {
     grid-area: page-header;
     display: grid;
-    grid-template-columns: min-content 1fr min-content min-content min(150px);
+    grid-template-columns: 1fr min-content min-content min(150px);
     column-gap: 26px;
     align-items: center;
-    background-color: var(--text-white);
+    background-color: var(--color-white);
 }
 
-input {
-    background-color: var(--background-grey);
+.searchbar .material-icons {
+    vertical-align: middle; /* Center the icon to match input field */
+}
+
+.searchbar input {
+    background-color: var(--color-light-grey);
     padding: 8px;
     border: none;
     border-radius: 12px;
-    width: max(150px, 80%)
+    width: max(150px, 80%);
 }
 
+
+/* || User header */
 .user-header {
     grid-area: user-header;
     display: grid;
@@ -63,21 +84,37 @@ input {
     align-items: center;
     box-shadow: var(--box-shadow);
     z-index: 1;
-    background-color: var(--text-white);
+    background-color: var(--color-white);
 }
 
-.user-welcome span {
+.btn {
+    padding: 8px 24px;
+    background-color: var(--color-blue);
+    color: var(--color-white);
     font-weight: 600;
+    border: none;
+    border-radius: 16px;
 }
 
+
+/* || Sidebar */
 .sidebar {
-    fill: var(--text-white);
-    color: var(--text-white);
-    background-color: var(--background-blue);
+    color: var(--color-white);
+    background-color: var(--color-blue);
     grid-area: sidebar;
     display: grid;
     grid-template-rows: repeat(3, max-content);
     row-gap: 25px;
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+}
+
+.logo .material-icons {
+    font-size: 2rem;
 }
 
 .nav {
@@ -92,20 +129,11 @@ input {
     padding: 8px 0;
 }
 
-.logo {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    align-items: center;
-}
 
-.logo span {
-    font-size: 2rem;
-}
-
+/* || Main */
 .article {
     grid-area: article;
     display: grid;
-    background-color: var(--background-grey);
     grid-template-columns: 3fr 1fr;
     grid-template-rows: min-content 1fr;
     gap: 24px;
@@ -114,13 +142,21 @@ input {
     "project trending"
 }
 
+.article h2 {
+    margin: 16px 0;
+    font-size: 1.2rem;
+}
+
 .project {
     grid-area: project;
 }
 
-.article h2 {
-    margin: 16px 0;
-    font-size: 1.2rem;
+.announcement {
+    grid-area: announcement;
+}
+
+.trending {
+    grid-area: trending;
 }
 
 .cards {
@@ -133,8 +169,8 @@ input {
     padding: 24px 24px;
     border-radius: 8px;
     min-height: 180px;
-    background-color: var(--text-white);
-    border-left: 8px solid var(--background-turquoise);
+    background-color: var(--color-white);
+    border-left: 8px solid var(--turquoise-turquoise);
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     box-shadow: var(--box-shadow);
@@ -145,7 +181,7 @@ input {
 }
 
 .card-content {
-    color: var(--text-grey);
+    color: var(--color-grey);
 }
 
 .card-footer {
@@ -157,7 +193,7 @@ input {
 .widget {
     padding: 24px 24px;
     border-radius: 8px;
-    background-color: var(--text-white);
+    background-color: var(--color-white);
     display: grid;
     grid-auto-rows: min-content;
     box-shadow: var(--box-shadow);
@@ -165,9 +201,9 @@ input {
 }
 
 .announcement .widget p {
-    color: var(--text-grey);
+    color: var(--color-grey);
     font-size: 0.8rem;
-    border-bottom: 1px solid var(--text-grey);
+    border-bottom: 1px solid var(--color-grey);
     padding-bottom: 16px;
 }
 
@@ -186,30 +222,5 @@ input {
 }
 
 .post-summary p {
-    color: var(--text-grey);
-}
-
-.announcement {
-    grid-area: announcement;
-}
-
-.trending {
-    grid-area: trending;
-}
-
-.avatar {
-    max-height: 40px;
-}
-
-.user-header .avatar {
-    max-height: 70px;
-}
-
-.btn {
-    padding: 8px 24px;
-    background-color: var(--background-blue);
-    color: var(--text-white);
-    font-weight: 600;
-    border: none;
-    border-radius: 16px;
+    color: var(--color-grey);
 }
